@@ -77,7 +77,12 @@ builder.Services.AddAuthentication(options =>
 
 // Add Database Context
 builder.Services.AddDbContext<TodoDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Default"),
+     o => o.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(30),
+            errorCodesToAdd: null
+        )));
 
 
 // Configure Swagger

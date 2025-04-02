@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/src/TodoApp.Application/bin/Debug/net9.0
+/src/TodoApp.Application/obj
+/src/TodoApp.Core/bin/Debug/net9.0
+/src/TodoApp.Core/obj
+/src/TodoApp.Infrastructure/bin/Debug/net9.0
+/src/TodoApp.WebApi/bin/Debug/net9.0
+/src/TodoApp.Infrastructure/obj
+/src/TodoApp.WebApi/obj
+/tests/TodoApp.IntegrationTests/bin/Debug/net9.0
+/tests/TodoApp.IntegrationTests/obj
+/tests/TodoApp.UnitTests/bin/Debug/net9.0
+/tests/TodoApp.UnitTests/obj
+/TodoApp.Web/.vs/TodoApp.Web
+/.vs

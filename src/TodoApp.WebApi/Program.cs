@@ -2,6 +2,7 @@ using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
@@ -105,7 +106,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
+    {   
         {
             new OpenApiSecurityScheme
             {
@@ -137,6 +138,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo App API v1");
+        c.RoutePrefix = "swagger"; 
     });
 }
 
@@ -146,5 +148,33 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var logger = services.GetRequiredService<ILogger<Program>>();
+    var db = services.GetRequiredService<TodoDbContext>();
+
+    try
+    {
+        logger.LogInformation("Checking for pending migrations...");
+        var pendingMigrations = db.Database.GetPendingMigrations();
+        if (pendingMigrations.Any())
+        {
+            logger.LogInformation("Applying migrations: {Migrations}",
+                string.Join(", ", pendingMigrations));
+            db.Database.Migrate();
+            logger.LogInformation("Migrations applied successfully");
+        }
+        else
+        {
+            logger.LogInformation("Database is up to date - no migrations to apply");
+        }
+    }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "An error occurred while applying migrations");        
+    }
+}
 
 app.Run();

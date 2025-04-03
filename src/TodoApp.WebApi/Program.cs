@@ -30,7 +30,8 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins("https://todo-frontend-mpip.onrender.com", "http://localhost:3000") 
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
 

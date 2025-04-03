@@ -28,7 +28,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp", policy =>
     {
-        policy.WithOrigins("https://todo-frontend-mpip.onrender.com", "http://localhost:3000") 
+        policy.WithOrigins("https://todo-frontend-mpip.onrender.com") 
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();

@@ -132,6 +132,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+app.UseRouting();
 // Use CORS policy
 app.UseCors("AllowReactApp");
 

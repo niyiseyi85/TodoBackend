@@ -1,129 +1,59 @@
-# TodoBackend
-Overview
+# Todo App
 
-This project is a Task Management System with user authentication and task management features. It is built using either Elixir (Phoenix Framework) or C# (.NET Core), with PostgreSQL as the preferred database.
+A simple web application for managing todo lists, built with **.NET 9**, **React**, and **Clean Architecture**. It includes user authentication, todo management, and password reset functionality.
 
-Features
+---
 
-User authentication (Signup & Login)
+## **Features**
+- **User Authentication**:
+  - Register a new account.
+  - Login with an existing account.
+  - Forgot password (reset password via email).
+- **Todo Management**:
+  - View todo list.
+  - Add a new todo item.
+  - Update an existing todo item.
+  - Delete a todo item.
+  - Mark a todo item as complete.
 
-Task management (Add, Fetch, and Delete tasks)
+---
 
-REST API with Swagger documentation
+## **Tech Stack**
+- **Backend**:
+  - .NET 9
+  - ASP.NET Core
+  - Entity Framework Core
+  - MediatR (CQRS)
+  - FluentValidation
+  - JWT Authentication
+- **Frontend**:
+  - React (to be implemented)
+- **Database**:
+  - SQL Server
 
-Relational database (PostgreSQL)
+---
 
-ORM: Ecto (for Elixir) or Entity Framework (for C#)
+## **Project Structure**
 
-Technologies Used
 
-Backend: Elixir (Phoenix Framework) / C# (.NET Core)
+---
 
-Database: PostgreSQL
+## **Setup**
 
-ORM: Ecto (for Elixir) / Entity Framework (for C#)
+### **Prerequisites**
+- .NET 9 SDK
+- SQL Server
+- Node.js (for frontend, if applicable)
 
-API Documentation: Swagger (or equivalent)
+### **Steps**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/todo-app.git
+   cd todo-app
 
-Installation & Setup
-
-Prerequisites
-
-Ensure you have the following installed on your system:
-
-PostgreSQL
-
-Elixir & Phoenix (if using Elixir)
-
-.NET SDK (if using C#)
-
-Clone the Repository
-
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
-
-Setting Up the Database
-
-Create a PostgreSQL database:
-
-psql -U postgres
-CREATE DATABASE task_management;
-
-Running the Backend
-
-If using Elixir (Phoenix Framework)
-
-mix deps.get
-mix ecto.setup
-mix phx.server
-
-If using C# (.NET Core)
-
+### **Backend**
+cd backend
 dotnet restore
-dotnet ef database update
+dotnet ef database update --context IdentityDbContext
+dotnet ef database update --context TodoDbContext
 dotnet run
-
-API Endpoints
-
-Method
-
-Endpoint
-
-Description
-
-POST
-
-/api/auth/signup
-
-User Signup
-
-POST
-
-/api/auth/login
-
-User Login
-
-POST
-
-/api/tasks
-
-Add Task
-
-GET
-
-/api/tasks
-
-Fetch All Tasks
-
-DELETE
-
-/api/tasks/:id
-
-Delete Task
-
-API Documentation
-
-Swagger documentation is available at:
-
-http://localhost:4000/swagger  (for Elixir)
-http://localhost:5000/swagger  (for .NET Core)
-
-Contributing
-
-Fork the repository.
-
-Create a new branch (git checkout -b feature-branch).
-
-Commit your changes (git commit -m 'Add new feature').
-
-Push to the branch (git push origin feature-branch).
-
-Open a pull request.
-
-License
-
-This project is licensed under the MIT License.
-
-Contact
-
-For any inquiries or support, contact [your-email@example.com].

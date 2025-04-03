@@ -14,8 +14,7 @@ A simple web application for managing todo lists, built with **.NET 9**, **React
   - Add a new todo item.
   - Update an existing todo item.
   - Delete a todo item.
-  - Mark a todo item as complete.
-
+    
 ---
 
 ## **Tech Stack**
@@ -29,7 +28,7 @@ A simple web application for managing todo lists, built with **.NET 9**, **React
 - **Frontend**:
   - React (to be implemented)
 - **Database**:
-  - SQL Server
+  - Postgres
 
 ---
 
@@ -42,13 +41,13 @@ A simple web application for managing todo lists, built with **.NET 9**, **React
 
 ### **Prerequisites**
 - .NET 9 SDK
-- SQL Server
-- Node.js (for frontend, if applicable)
+- Postgres
+- React (for frontend, if applicable)
 
 ### **Steps**
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/todo-app.git
+   git clone https://github.com/niyiseyi85/TodoBackend.git
    cd todo-app
 
 ### **Backend**
